@@ -20,6 +20,12 @@ useEffect(() =>{
 searchMovies({searchTerm});
 },[searchTerm]);
 
+const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+        searchMovies(searchTerm);
+    }
+}
+
 
 return(
     <div className="app">
@@ -28,6 +34,7 @@ return(
             <input
                 placeholder="Search For Movies"
                 value={searchTerm}
+                onKeyDown={handleKeyDown}
                 onChange={(e) =>setSearchTerm(e.target.value)}
             />  
             <img 
